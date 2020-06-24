@@ -3,12 +3,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<!-- The script goes here becase it is used to display the page -->
+	<script>
+    // Picture element HTML5 shiv - for even older browsers
+    document.createElement( "picture" );
+  </script>
+	<script src="picturefill.min.js"></script>
+	<link href="style.css" rel="stylesheet">
 </head>
 <body>
 	<!-- visit http://scottjehl.github.io/picturefill/ for picturefill source -->
 	<div class="bkgdimg"></div>
-	<div>
-		<img src="img/peace-pie-original.jpg" alt="The original giant peace pie">
-	</div>
+	<picture>
+		<source srcset="img/peace-pie-original.jpg" media="(min-width: 1200px)">
+		<source srcset="img/peace-pie-500.jpg" media="(min-width: 800px)">
+		<!-- this is the fallback (in case browser doesn't suppor picture) and the image displayed in mobile version -->
+		<img src="img/peace-pie-150.jpg" alt="The original giant peace pie">
+	</picture>
 </body>
 </html>
